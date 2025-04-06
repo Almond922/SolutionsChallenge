@@ -1,0 +1,614 @@
+<!-- Add this as a new section after the common-issues section -->
+<section id="symptom-checker">
+    <h2>Symptom Checker</h2>
+    
+    <div class="card intro-card">
+        <div class="card-icon">🩺</div>
+        <p>Check your symptoms to get advice on what to do next.</p>
+    </div>
+    
+    <div class="steps">
+        <h3>How to use this tool:</h3>
+        <div class="step-container">
+            <div class="step"><span class="step-number">1</span>Select the main body area where you feel symptoms.</div>
+            <div class="step"><span class="step-number">2</span>Choose the symptoms you're experiencing.</div>
+            <div class="step"><span class="step-number">3</span>Get basic guidance on what to do next.</div>
+            <div class="step"><span class="step-number">4</span>Call the Telehealth line if you're unsure or symptoms are severe.</div>
+        </div>
+    </div>
+    
+    <div class="symptom-area">
+        <h3>Step 1: Select Body Area</h3>
+        <div class="body-areas">
+            <button class="area-button" onclick="showSymptoms('head')">
+                <span class="button-icon">🧠</span>
+                <span>Head & Face</span>
+            </button>
+            <button class="area-button" onclick="showSymptoms('chest')">
+                <span class="button-icon">🫁</span>
+                <span>Chest & Breathing</span>
+            </button>
+            <button class="area-button" onclick="showSymptoms('stomach')">
+                <span class="button-icon">�胃</span>
+                <span>Stomach & Digestion</span>
+            </button>
+            <button class="area-button" onclick="showSymptoms('skin')">
+                <span class="button-icon">🧴</span>
+                <span>Skin & Rashes</span>
+            </button>
+            <button class="area-button" onclick="showSymptoms('fever')">
+                <span class="button-icon">🤒</span>
+                <span>Fever & Overall Pain</span>
+            </button>
+            <button class="area-button" onclick="showSymptoms('wounds')">
+                <span class="button-icon">🩹</span>
+                <span>Injuries & Wounds</span>
+            </button>
+        </div>
+    </div>
+    
+    <div id="symptoms-head" class="symptom-list-section" style="display:none;">
+        <h3>Step 2: Select Symptoms (Head & Face)</h3>
+        <div class="symptoms-container">
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="headache"> Headache</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="dizziness"> Dizziness</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="facial-pain"> Face Pain</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="vision-problems"> Vision Problems</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="ear-pain"> Ear Pain</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="hearing-problems"> Hearing Problems</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="confusion"> Confusion</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="toothache"> Toothache</label>
+        </div>
+        <button class="check-button" onclick="checkSymptoms('head')">Check Symptoms</button>
+    </div>
+    
+    <!-- Remaining symptom sections (chest, stomach, etc.) follow the same pattern with updated class names -->
+    <div id="symptoms-chest" class="symptom-list-section" style="display:none;">
+        <h3>Step 2: Select Symptoms (Chest & Breathing)</h3>
+        <div class="symptoms-container">
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="chest-pain"> Chest Pain</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="shortness-breath"> Trouble Breathing</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="cough"> Cough</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="fast-heartbeat"> Fast Heartbeat</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="wheezing"> Wheezing</label>
+        </div>
+        <button class="check-button" onclick="checkSymptoms('chest')">Check Symptoms</button>
+    </div>
+    
+    <div id="symptoms-stomach" class="symptom-list-section" style="display:none;">
+        <h3>Step 2: Select Symptoms (Stomach & Digestion)</h3>
+        <div class="symptoms-container">
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="stomach-pain"> Stomach Pain</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="nausea"> Nausea</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="vomiting"> Vomiting</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="diarrhea"> Diarrhea</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="constipation"> Constipation</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="blood-stool"> Blood in Stool</label>
+        </div>
+        <button class="check-button" onclick="checkSymptoms('stomach')">Check Symptoms</button>
+    </div>
+    
+    <div id="symptoms-skin" class="symptom-list-section" style="display:none;">
+        <h3>Step 2: Select Symptoms (Skin & Rashes)</h3>
+        <div class="symptoms-container">
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="rash"> Rash</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="itching"> Itching</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="swelling"> Swelling</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="redness"> Redness</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="bruising"> Bruising</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="bites"> Insect Bites/Stings</label>
+        </div>
+        <button class="check-button" onclick="checkSymptoms('skin')">Check Symptoms</button>
+    </div>
+    
+    <div id="symptoms-fever" class="symptom-list-section" style="display:none;">
+        <h3>Step 2: Select Symptoms (Fever & Overall Pain)</h3>
+        <div class="symptoms-container">
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="fever"> Fever</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="chills"> Chills/Shivering</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="body-ache"> Body Aches</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="fatigue"> Extreme Tiredness</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="sweating"> Excessive Sweating</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="joint-pain"> Joint Pain</label>
+        </div>
+        <button class="check-button" onclick="checkSymptoms('fever')">Check Symptoms</button>
+    </div>
+    
+    <div id="symptoms-wounds" class="symptom-list-section" style="display:none;">
+        <h3>Step 2: Select Symptoms (Injuries & Wounds)</h3>
+        <div class="symptoms-container">
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="cut"> Cut or Laceration</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="bleeding"> Heavy Bleeding</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="burn"> Burn</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="fracture"> Possible Broken Bone</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="sprain"> Sprain or Strain</label>
+            <label class="symptom-label"><input type="checkbox" class="symptom-check" value="animal-bite"> Animal Bite</label>
+        </div>
+        <button class="check-button" onclick="checkSymptoms('wounds')">Check Symptoms</button>
+    </div>
+    
+    <div id="result" class="card result-card" style="display:none;">
+        <h3>Your Results:</h3>
+        <div id="result-content"></div>
+        
+        <div id="emergency-warning" class="result-section emergency" style="display:none;">
+            <div class="result-icon">🚨</div>
+            <h4>SEEK MEDICAL HELP IMMEDIATELY</h4>
+            <p>Your symptoms suggest a potentially serious condition that requires prompt medical attention.</p>
+            <a href="tel:911" class="action-button emergency-button">
+                CALL EMERGENCY: 911
+            </a>
+        </div>
+        
+        <div id="telehealth-option" class="result-section telehealth" style="display:none;">
+            <div class="result-icon">👨‍⚕️</div>
+            <h4>TALK TO A DOCTOR SOON</h4>
+            <p>Your symptoms should be evaluated by a healthcare professional within 24 hours.</p>
+            <a href="tel:18005551234" class="action-button telehealth-button">
+                Call Doctor: 1-800-555-1234
+            </a>
+        </div>
+        
+        <div id="self-care" class="result-section self-care" style="display:none;">
+            <div class="result-icon">🏠</div>
+            <h4>HOME CARE ADVICE</h4>
+            <div id="self-care-content"></div>
+            <p class="note">If symptoms worsen or don't improve within 48 hours, please contact a healthcare provider.</p>
+        </div>
+    </div>
+    
+    <div class="offline-note">
+        <div class="note-icon">⚠️</div>
+        <p><strong>Important:</strong> This symptom checker provides basic guidance only. It is not a substitute for professional medical advice.</p>
+    </div>
+</section>
+
+<!-- Add enhanced CSS -->
+<style>
+    #symptom-checker {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        color: #333;
+    }
+    
+    #symptom-checker h2 {
+        color: #2c3e50;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+    
+    #symptom-checker h3 {
+        color: #2c3e50;
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .intro-card {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .card-icon {
+        font-size: 36px;
+        margin-right: 20px;
+    }
+    
+    .step-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .step {
+        background-color: #f0f7ff;
+        padding: 15px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+    }
+    
+    .step:hover {
+        transform: translateY(-2px);
+    }
+    
+    .step-number {
+        background-color: #3498db;
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-weight: bold;
+    }
+    
+    .body-areas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .area-button {
+        background: linear-gradient(to bottom, #27ae60, #219653);
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        flex-grow: 1;
+        text-align: center;
+        min-width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .area-button:hover {
+        background: linear-gradient(to bottom, #219653, #1e8449);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .button-icon {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+    
+    .symptoms-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .symptom-label {
+        background: #f5f5f5;
+        padding: 12px 15px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: background-color 0.2s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .symptom-label:hover {
+        background: #e9e9e9;
+    }
+    
+    .symptom-check {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    
+    .check-button {
+        background: linear-gradient(to bottom, #3498db, #2980b9);
+        color: white;
+        border: none;
+        padding: 14px 25px;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+    }
+    
+    .check-button:hover {
+        background: linear-gradient(to bottom, #2980b9, #2471a3);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .result-card {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        padding: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .result-section {
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        position: relative;
+        padding-left: 60px;
+    }
+    
+    .result-icon {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 30px;
+    }
+    
+    .emergency {
+        background-color: #ffebee;
+        border-left: 5px solid #e53935;
+    }
+    
+    .emergency h4 {
+        color: #c62828;
+        margin-top: 0;
+    }
+    
+    .telehealth {
+        background-color: #e3f2fd;
+        border-left: 5px solid #1e88e5;
+    }
+    
+    .telehealth h4 {
+        color: #1565c0;
+        margin-top: 0;
+    }
+    
+    .self-care {
+        background-color: #e8f5e9;
+        border-left: 5px solid #43a047;
+    }
+    
+    .self-care h4 {
+        color: #2e7d32;
+        margin-top: 0;
+    }
+    
+    .action-button {
+        display: inline-block;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .emergency-button {
+        background-color: #e53935;
+        color: white;
+    }
+    
+    .emergency-button:hover {
+        background-color: #c62828;
+    }
+    
+    .telehealth-button {
+        background-color: #1e88e5;
+        color: white;
+    }
+    
+    .telehealth-button:hover {
+        background-color: #1565c0;
+    }
+    
+    .note {
+        font-style: italic;
+        margin-top: 15px;
+        color: #546e7a;
+    }
+    
+    .offline-note {
+        background-color: #fff3e0;
+        border-left: 5px solid #ff9800;
+        padding: 15px 15px 15px 60px;
+        border-radius: 8px;
+        margin-top: 30px;
+        position: relative;
+    }
+    
+    .note-icon {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 30px;
+    }
+    
+    @media (max-width: 768px) {
+        .symptoms-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .area-button {
+            min-width: 120px;
+            padding: 12px 10px;
+        }
+        
+        .result-section {
+            padding-left: 20px;
+        }
+        
+        .result-icon {
+            position: static;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .card-icon {
+            display: none;
+        }
+        
+        .offline-note {
+            padding: 15px;
+        }
+        
+        .note-icon {
+            position: static;
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
+<script>
+    function showSymptoms(area) {
+        // Hide all symptom sections
+        const allSections = document.querySelectorAll('.symptom-list-section');
+        allSections.forEach(section => {
+            section.style.display = 'none';
+        });
+        
+        // Show selected section
+        const selectedSection = document.getElementById('symptoms-' + area);
+        if (selectedSection) {
+            selectedSection.style.display = 'block';
+            
+            // Scroll to the section
+            selectedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Hide results
+        document.getElementById('result').style.display = 'none';
+        
+        // Highlight selected button and remove highlight from others
+        const buttons = document.querySelectorAll('.area-button');
+        buttons.forEach(button => {
+            button.style.opacity = '0.7';
+        });
+        
+        event.currentTarget.style.opacity = '1';
+    }
+    
+    function checkSymptoms(area) {
+        const checkboxes = document.querySelectorAll('#symptoms-' + area + ' .symptom-check:checked');
+        const selectedSymptoms = Array.from(checkboxes).map(cb => cb.value);
+        
+        // Reset result sections
+        document.getElementById('emergency-warning').style.display = 'none';
+        document.getElementById('telehealth-option').style.display = 'none';
+        document.getElementById('self-care').style.display = 'none';
+        
+        // Display results section
+        const resultElement = document.getElementById('result');
+        resultElement.style.display = 'block';
+        
+        // Scroll to result
+        resultElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        const resultContent = document.getElementById('result-content');
+        
+        if (selectedSymptoms.length === 0) {
+            resultContent.innerHTML = '<p>No symptoms selected. Please select at least one symptom.</p>';
+            return;
+        }
+        
+        resultContent.innerHTML = '<p>Based on your selected symptoms:</p>';
+        
+        // Emergency symptoms that need immediate attention
+        const emergencySymptoms = [
+            'chest-pain', 'shortness-breath', 'confusion', 'vision-problems', 
+            'bleeding', 'fracture', 'animal-bite', 'blood-stool'
+        ];
+        
+        // Telehealth symptoms that need professional evaluation
+        const telehealthSymptoms = [
+            'fever', 'severe-headache', 'severe-stomach-pain', 'dizziness', 'wheezing',
+            'fast-heartbeat', 'burn', 'vomiting', 'rash', 'ear-pain'
+        ];
+        
+        // Check for emergency symptoms
+        const hasEmergencySymptoms = selectedSymptoms.some(symptom => 
+            emergencySymptoms.includes(symptom)
+        );
+        
+        // Check for telehealth symptoms
+        const hasTelehealthSymptoms = selectedSymptoms.some(symptom => 
+            telehealthSymptoms.includes(symptom)
+        );
+        
+        if (hasEmergencySymptoms) {
+            document.getElementById('emergency-warning').style.display = 'block';
+        } else if (hasTelehealthSymptoms || selectedSymptoms.length >= 3) {
+            document.getElementById('telehealth-option').style.display = 'block';
+        } else {
+            // Show self-care advice
+            document.getElementById('self-care').style.display = 'block';
+            const selfCareContent = document.getElementById('self-care-content');
+            
+            // Provide appropriate self-care advice based on the area
+            let advice = '<ul class="care-list">';
+            
+            if (area === 'head') {
+                advice += '<li>Rest in a quiet, dark room</li>';
+                advice += '<li>Apply a cold compress to your forehead</li>';
+                advice += '<li>Stay hydrated by drinking water</li>';
+                advice += '<li>Take over-the-counter pain relievers as directed</li>';
+            } else if (area === 'stomach') {
+                advice += '<li>Drink clear fluids in small amounts</li>';
+                advice += '<li>Avoid solid foods until symptoms improve</li>';
+                advice += '<li>Try eating plain foods like rice or bread when ready</li>';
+                advice += '<li>Avoid dairy, caffeine, and spicy foods</li>';
+            } else if (area === 'skin') {
+                advice += '<li>Wash the affected area with mild soap and water</li>';
+                advice += '<li>Apply a cold compress to reduce itching and swelling</li>';
+                advice += '<li>Use calamine lotion for itching</li>';
+                advice += '<li>Avoid scratching the affected area</li>';
+            } else if (area === 'fever') {
+                advice += '<li>Rest and drink plenty of fluids</li>';
+                advice += '<li>Take acetaminophen or ibuprofen as directed for fever</li>';
+                advice += '<li>Use a light blanket if you have chills</li>';
+                advice += '<li>Take a lukewarm bath to help lower fever</li>';
+            } else if (area === 'wounds') {
+                advice += '<li>Clean the wound with clean water and mild soap</li>';
+                advice += '<li>Apply pressure with a clean cloth to stop any bleeding</li>';
+                advice += '<li>Apply antibiotic ointment if available</li>';
+                advice += '<li>Cover with a clean bandage and change daily</li>';
+            } else {
+                advice += '<li>Rest and avoid strenuous activities</li>';
+                advice += '<li>Stay hydrated by drinking water regularly</li>';
+                advice += '<li>Take over-the-counter pain relievers as directed if needed</li>';
+                advice += '<li>Monitor your symptoms and seek help if they worsen</li>';
+            }
+            
+            advice += '</ul>';
+            selfCareContent.innerHTML = advice;
+        }
+    }
+    
+    // Additional CSS for the care list
+    document.head.insertAdjacentHTML('beforeend', `
+        <style>
+            .care-list {
+                list-style-type: none;
+                padding: 0;
+                margin: 15px 0;
+            }
+            
+            .care-list li {
+                padding: 8px 0 8px 30px;
+                position: relative;
+            }
+            
+            .care-list li:before {
+                content: "✓";
+                color: #43a047;
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+            }
+        </style>
+    `);
+</script>

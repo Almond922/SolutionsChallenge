@@ -1,0 +1,805 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+    <style>
+      /* Force small size and position at bottom-right */
+      df-messenger {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        z-index: 9999;
+        --df-messenger-button-titlebar-color: #1976d2;
+        --df-messenger-button-titlebar-font-color: #fff;
+      }
+
+      df-messenger::part(dialog) {
+        max-width: 360px;
+        max-height: 480px;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+      }
+
+      /* Fallback if needed */
+      iframe[title="chat widget"] {
+        max-width: 360px !important;
+        max-height: 480px !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 12px !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="MedicationReminder"
+      agent-id="565615c3-1e9c-42f6-a8f2-7b53d422220b"
+      language-code="en">
+    </df-messenger>
+  </body>
+</html>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Healthcare Connect</title>
+    <style>
+
+        /* Simple, high-contrast design optimized for low-end devices */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+
+header {
+    background-image: url(ruraal.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    height: 250px;
+    position: relative;
+    padding: 0; 
+}
+
+header .container {
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0; 
+}
+
+
+header h1 {
+    margin: 0 0 10px 0;
+    color: #eee;
+}
+
+header p {
+    color: #fff;
+    font-size: 1.2em;
+    margin: 0;
+}
+        
+    
+        
+        nav {
+            background-color: #2ecc71;
+            padding: 4px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 5px 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+            padding: 8px 15px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        
+        section {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h1, h2, h3 {
+            margin-top: 0;
+            color: #27ae60;
+        }
+        
+        h1 {
+            font-size: 36px;
+            color:#eee
+        }
+        
+        h2 {
+            font-size: 30px;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 24px;
+        }
+        
+        .big-button {
+            display: block;
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 15px 0;
+            font-size: 22px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .urgent-care-button {
+            background: #e74c3c;
+        }
+        
+        .telehealth-button {
+            background: #3498db;
+        }
+        
+        .resources-button {
+            background: #f39c12;
+        }
+        
+        .contact-button {
+            background: #9b59b6;
+        }
+        
+        .card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 5px solid #27ae60;
+        }
+        
+        .steps {
+            background: #efffef;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            counter-reset: step-counter;
+        }
+        
+        .step {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .step:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #27ae60;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .program {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 5px solid #3498db;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 8px;
+        }
+        
+        footer {
+            background: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .offline-note {
+            background: #ffedcc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 2px dashed #f39c12;
+        }
+        
+        .health-condition {
+            margin-bottom: 30px;
+        }
+        
+        .health-condition h3 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .symptom-list {
+            background: #fff5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .treatment-list {
+            background: #f0fff4;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 28px;
+                
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            h3 {
+                font-size: 20px;
+            }
+            
+            .big-button {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            nav a {
+                font-size: 16px;
+            }
+        }
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Soft Navigation Hover */
+        nav a {
+            position: relative;
+            display: inline-block;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            transition: ease-in-out;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        /* Refined Button Hover Effects */
+        .big-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .big-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg, 
+                transparent, 
+                rgba(255,255,255,0.2), 
+                transparent
+            );
+            transition: all 0.4s ease;
+        }
+        
+        .big-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .big-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Subtle Section Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        main section {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: backwards;
+        }
+        
+        /* Card and Program Hover Effects */
+        .card, .program, .health-condition {
+            transition: all 0.3s ease;
+            will-change: transform, box-shadow;
+        }
+        
+        .card:hover, .program:hover, .health-condition:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Step Hover Animation */
+        .step:before {
+            transition: background-color 0.3s ease;
+        }
+        
+        .step:hover:before {
+            background-color: #2ecc71;
+        }
+        
+        /* Footer Subtle Hover */
+        footer {
+            transition: background-color 0.3s ease;
+        }
+        
+        footer:hover {
+            background-color: #2ecc71;
+        }
+        
+        /* Additional Subtle Interaction Details */
+        input, select, textarea {
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+        }
+        
+        /* Responsive Transitions */
+        @media (max-width: 768px) {
+            .big-button:hover {
+                transform: none;
+            }
+            
+            .card:hover, .program:hover, .health-condition:hover {
+                transform: none;
+            }
+        }
+        
+        /* Subtle Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Original HTML content remains the same -->
+    <script>
+        // Minimal JavaScript for smooth interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+    </style>
+</head>
+<body>
+    </div>
+    
+    <header>
+        <div class="container">
+            <h1>Rural Healthcare Connect</h1>
+            <p>Simple healthcare help for your community</p>
+            
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#emergency">Emergency</a></li>
+                <li><a href="#common-issues">Health Issues</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#telehealth">Talk to Doctor</a></li>
+                <li><a href="#locations">Clinics</a></li>
+                <li><a href="symptoms.html">Symptom Checker</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="emergency">
+            <h2>Emergency Help</h2>
+            
+            <a href="tel:911" class="big-button urgent-care-button">
+                CALL EMERGENCY: 911
+            </a>
+            
+            <div class="card">
+                <h3>When to Seek Emergency Care:</h3>
+                <ul>
+                    <li>Difficulty breathing or shortness of breath</li>
+                    <li>Chest or upper abdominal pain or pressure</li>
+                    <li>Fainting, sudden dizziness, weakness</li>
+                    <li>Changes in vision</li>
+                    <li>Confusion or changes in mental status</li>
+                    <li>Any sudden or severe pain</li>
+                    <li>Uncontrolled bleeding</li>
+                    <li>Severe or persistent vomiting or diarrhea</li>
+                    <li>Coughing or vomiting blood</li>
+                    <li>Suicidal or homicidal feelings</li>
+                    <li>Difficulty speaking or slurred speech</li>
+                    <li>Unusual abdominal pain</li>
+                </ul>
+            </div>
+            
+            <div class="steps">
+                <h3>While Waiting for Emergency Help:</h3>
+                <div class="step">Stay with the person who needs help. Don't leave them alone.</div>
+                <div class="step">If they are unconscious but breathing, turn them on their side.</div>
+                <div class="step">If there is bleeding, apply firm pressure with a clean cloth.</div>
+                <div class="step">Do not give food or drink to someone who might need surgery.</div>
+                <div class="step">Collect the person's medications to show emergency workers.</div>
+            </div>
+            
+           
+        
+        <section id="common-issues">
+            <h2>Common Health Issues</h2>
+            
+            <p>These are common health problems in rural areas and what to do about them:</p>
+            
+            <div class="health-condition">
+                <h3>Fever</h3>
+                <div class="symptom-list">
+                    <strong>Watch for:</strong>
+                    <ul>
+                        <li>Temperature above 100.4°F (38°C)</li>
+                        <li>Sweating, chills, headache</li>
+                        <li>Muscle aches, weakness</li>
+                        <li>Loss of appetite</li>
+                    </ul>
+                </div>
+                <div class="treatment-list">
+                    <strong>What to do:</strong>
+                    <ul>
+                        <li>Drink plenty of fluids</li>
+                        <li>Rest</li>
+                        <li>Take acetaminophen (Tylenol) or ibuprofen (Advil) as directed</li>
+                        <li>Use a cool cloth on forehead</li>
+                        <li><strong>Seek medical help if:</strong> Fever is above 103°F (39.4°C), lasts more than 3 days, or is in a child under 3 months</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="health-condition">
+                <h3>Dehydration</h3>
+                <div class="symptom-list">
+                    <strong>Watch for:</strong>
+                    <ul>
+                        <li>Extreme thirst</li>
+                        <li>Dry mouth and tongue</li>
+                        <li>No tears when crying</li>
+                        <li>No wet diapers for 3+ hours</li>
+                        <li>Sunken eyes, cheeks</li>
+                        <li>Sunken soft spot on top of infant's head</li>
+                        <li>Listlessness or irritability</li>
+                    </ul>
+                </div>
+                <div class="treatment-list">
+                    <strong>What to do:</strong>
+                    <ul>
+                        <li>Drink small sips of water or oral rehydration solution</li>
+                        <li>For children, use Pedialyte or similar product</li>
+                        <li>Avoid caffeine and alcohol</li>
+                        <li>Homemade rehydration solution: 6 teaspoons sugar + 1/2 teaspoon salt in 1 liter of clean water</li>
+                        <li><strong>Seek medical help if:</strong> Person is very weak, has no urine output, or symptoms don't improve</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="health-condition">
+                <h3>Skin Infections</h3>
+                <div class="symptom-list">
+                    <strong>Watch for:</strong>
+                    <ul>
+                        <li>Redness, swelling, warmth</li>
+                        <li>Pain or tenderness</li>
+                        <li>Pus or drainage</li>
+                        <li>Red streaks spreading from the area</li>
+                        <li>Fever</li>
+                    </ul>
+                </div>
+                <div class="treatment-list">
+                    <strong>What to do:</strong>
+                    <ul>
+                        <li>Clean with soap and water</li>
+                        <li>Apply antibiotic ointment if available</li>
+                        <li>Cover with clean bandage</li>
+                        <li>Change bandage daily</li>
+                        <li><strong>Seek medical help if:</strong> Area gets larger, more painful, has red streaks, or you develop fever</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="#telehealth" class="big-button telehealth-button">
+                Talk to a Doctor Now →
+            </a>
+        </section>
+        
+        <section id="programs">
+            <h2>Free Healthcare Programs</h2>
+            
+            <div class="program">
+                <h3>Mobile Health Clinic Visits</h3>
+                <p><strong>What:</strong> Free medical checkups, vaccinations, and basic treatments</p>
+                <p><strong>When:</strong> First Monday of every month</p>
+                <p><strong>Where:</strong> Community center parking lots</p>
+                <p><strong>Bring:</strong> ID if you have one (not required)</p>
+                <table>
+                    <tr>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                    <tr>
+                        <td>Ashoka Cultural Centre</td>
+                        <td>April 7, 2025</td>
+                        <td>9am - 3pm</td>
+                    </tr>
+                    <tr>
+                        <td>Tagore Community Hub </td>
+                        <td>April 14, 2025</td>
+                        <td>10am - 4pm</td>
+                    </tr>
+                    <tr>
+                        <td>Indira Gandhi Memorial Community Center </td>
+                        <td>April 21, 2025</td>
+                        <td>8am - 2pm</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="program">
+                <h3>Medication Assistance Program</h3>
+                <p><strong>What:</strong> Free or low-cost medications for common conditions</p>
+                <p><strong>Who qualifies:</strong> Families earning less than $40,000/year</p>
+                <p><strong>How to apply:</strong> Visit any program location or call +91 1800 4567 890</p>
+                <p><strong>Covered medications include:</strong> Blood pressure, diabetes, asthma, antibiotics, and many others</p>
+                <a href="#" class="big-button resources-button">
+                    Apply for Medication Help
+                </a>
+            </div>
+            
+            <div class="program">
+                <h3>Maternal & Child Health Program</h3>
+                <p><strong>What:</strong> Free prenatal care, child checkups, and nutrition support</p>
+                <p><strong>Who qualifies:</strong> Pregnant women and children under 5</p>
+                <p><strong>Services include:</strong></p>
+                <ul>
+                    <li>Prenatal vitamins and checkups</li>
+                    <li>Infant formula if needed</li>
+                    <li>Child vaccinations</li>
+                    <li>Growth monitoring</li>
+                    <li>Nutrition education</li>
+                </ul>
+                <p><strong>To join:</strong> Visit any rural health clinic or call 1-800-555-BABY</p>
+            </div>
+        </section>
+        
+        <section id="telehealth">
+            <h2>Talk to a Doctor from Home</h2>
+            
+            <div class="card">
+                <h3>Free Phone Doctor Visits</h3>
+                <p>Talk to a doctor right now without traveling to a clinic.</p>
+                <a href="tel:18005551234" class="big-button telehealth-button">
+                    Call Doctor: 1-800-555-1234
+                </a>
+                <p><strong>Available:</strong> 24 hours a day, 7 days a week</p>
+                <p><strong>Cost:</strong> FREE for rural residents</p>
+                <p><strong>What you need:</strong> Just a phone (smart phone not required)</p>
+            </div>
+            
+            <div class="steps">
+                <h3>How Phone Doctor Visits Work:</h3>
+                <div class="step">Call the number above and tell them your name and location.</div>
+                <div class="step">Explain your health problem to the nurse who answers.</div>
+                <div class="step">Wait for a doctor to call you back (usually within 30 minutes).</div>
+                <div class="step">Talk to the doctor about your symptoms and follow their advice.</div>
+                <div class="step">If you need medicine, they can call it in to your nearest pharmacy.</div>
+            </div>
+            
+            
+        
+        <section id="locations">
+            <h2>Nearest Health Clinics</h2>
+            
+            <div class="card">
+                <h3>Arogya Wellness Centre</h3>
+                <p><strong>Address:</strong> 42 Gandhi Road, Pune, Maharashtra</p>
+                <p><strong>Phone:</strong> +91 20 2567 8901</p>
+                <p><strong>Hours:</strong> Monday-Friday 8am-5pm</p>
+                <p><strong>Services:</strong> Basic medical care, vaccinations, prenatal care, chronic disease management</p>
+                <p><strong>Cost:</strong> Sliding scale based on income, Medicaid accepted</p>
+                <a href="tel:5551234567" class="big-button contact-button">
+                    Call This Clinic
+                </a>
+            </div>
+            
+            <div class="card">
+                <h3>Sahyog Community Health Clinic</h3>
+                <p><strong>Address:</strong> 78 Nehru Nagar, Jaipur, Rajasthan</p>
+                <p><strong>Phone:</strong>+91 141 4567 2390 </p>
+                <p><strong>Hours:</strong> Monday-Thursday 9am-7pm, Friday 9am-5pm, Saturday 9am-12pm</p>
+                <p><strong>Services:</strong> Medical care, dental, vision, mental health, pharmacy</p>
+                <p><strong>Cost:</strong> No one turned away for inability to pay</p>
+                <a href="tel:5557890123" class="big-button contact-button">
+                    Call This Clinic
+                </a>
+            </div>
+            
+            <div class="card">
+                <h3>Dant Seva Mobile Dental Van</h3>
+                <p><strong>When:</strong> Third week of each month</p>
+                <p><strong>Services:</strong> Cleanings, fillings, extractions</p>
+                <p><strong>Cost:</strong> Free for those without insurance</p>
+                <p><strong>Appointments:</strong> Call +91 98432 56789</p>
+                <a href="tel:+919843256789" class="big-button contact-button">
+                    Schedule Dental Visit
+                </a>
+            </div>
+        </section>
+        
+        <section id="prevention">
+            <h2>Staying Healthy</h2>
+            
+            <div class="card">
+                <h3>Clean Water Tips</h3>
+                <ul>
+                    <li>Boil drinking water for 1 minute if you're unsure of its safety</li>
+                    <li>Store water in clean, covered containers</li>
+                    <li>Use bleach to disinfect water (2 drops per quart, wait 30 minutes)</li>
+                    <li>Keep water sources away from animal waste</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Preventing Common Illnesses</h3>
+                <ul>
+                    <li>Wash hands frequently with soap and water</li>
+                    <li>Cover coughs and sneezes with elbow or tissue</li>
+                    <li>Keep food preparation areas clean</li>
+                    <li>Fully cook meat and eggs</li>
+                    <li>Keep vaccinations up to date</li>
+                    <li>Use mosquito nets where needed</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p class="contact-info">Emergency: 911</p>
+            <p class="contact-info">Health Hotline: 1-800-555-HELP</p>
+            <p>This website works offline! Bookmark it or save to your home screen.</p>
+            <p>© 2025 Rural Healthcare Initiative</p>
+        </div>
+    </footer>
+</body>
+</html>
