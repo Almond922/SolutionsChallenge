@@ -51,3 +51,6 @@ A user-friendly, AI-powered healthcare website designed to bridge the medical ga
    ```bash
    git clone https://github.com/your-username/healthcare-chatbot.git
    cd healthcare-chatbot
+
+2. **Open in Browser**
+    Just open index.html in your browser.
